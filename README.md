@@ -8,6 +8,29 @@ Today we're going to implement SwiftCharts to build an application to visualize 
  - [Dummy JSON](https://dummyjson.com/products) Data to use
 
 
+### Let's begin a struct that will download the JSON data:
+
+```
+import Foundation
+struct Products: Codable {
+    var products:[ProductModel]
+}
+
+struct ProductModel: Codable, Identifiable {
+    var id : Int
+    var title: String
+    var description: String
+    var price: Int
+    var discountPercentage: Double
+    var rating: Double
+    var stock: Int
+    var brand: String
+    var category: String
+    var thumbnail: String
+    var images: [String]
+}
+
+```
 ### Let's begin by making a class to download JSON Data:
 ``` 
 import Foundation
