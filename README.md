@@ -8,5 +8,4 @@ Today we're going to implement SwiftCharts to build an application to visualize 
  - [Dummy JSON](https://dummyjson.com/products) Data to use
 
 
-##
-<tab><tab>code/text here
+
