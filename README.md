@@ -6,7 +6,7 @@ Today we're going to implement Swift Charts to build an expense tracking applica
  - [Xcode 15.0 or newer](https://developer.apple.com/xcode/) which can be found on the App Store on the Mac
  - Basic knowledge of Swift and SwiftUI
    
-### Step 1 Let's begin a model for our expense:
+### Step 1 Let's begin a model for our expense and expense totals:
 
 ```
 import Foundation
