@@ -1,34 +1,46 @@
 # Getting Started with Xcode and SwiftUI
 
-Today we're going to implement SwiftCharts to build an application to visualize product review data.
+Today we're going to implement Swift Charts to build an expense tracking application.
 
 # Prior Knowledge/Installation
  - [Xcode 15.0 or newer](https://developer.apple.com/xcode/) which can be found on the App Store on the Mac
  - Basic knowledge of Swift and SwiftUI
- - [Dummy JSON](https://dummyjson.com/products) Data to use
-
-
-### Step 1 Let's begin a struct that will download the JSON data:
+   
+### Step 1 Let's begin a model for our expense:
 
 ```
 import Foundation
-struct Products: Codable {
-    var products:[ProductModel]
+
+class ExpenseModel: Identifiable {
+    var id = UUID()
+    var name: String
+    var category: ExpenseCategory
+    var amount: Double
+    var dateCreated: Date = Date()
+    var color: Color
+    
+    init(id: UUID = UUID(), name: String, expense: ExpenseCategory, amount: Double, dateCreated: Date, color: Color = .red) {
+        self.id = id
+        self.name = name
+        self.category = expense
+        self.amount = amount
+        self.dateCreated = dateCreated
+    
+        switch expense {
+        case .food:
+            self.color = .orange
+        case .entertainment:
+            self.color = .red
+        case .bill:
+            self.color = .blue
+        case .utility:
+            self.color = .purple
+        case .tax:
+            self.color = .brown
+        }
+    }
 }
 
-struct ProductModel: Codable, Identifiable {
-    var id : Int
-    var title: String
-    var description: String
-    var price: Int
-    var discountPercentage: Double
-    var rating: Double
-    var stock: Int
-    var brand: String
-    var category: String
-    var thumbnail: String
-    var images: [String]
-}
 
 ```
 ### Step 2 We will make an Observable Class that will manage both downloading the data and populating the array of data:
