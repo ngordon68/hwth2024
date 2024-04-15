@@ -86,47 +86,66 @@ class ExpenseTotalModel: Identifiable {
 
 
 ```
-### Step 2 We will make an Observable Class that will manage both downloading the data and populating the array of data:
+### Step 2 We will make an Observable Class that will manage our expenses:
 ``` 
 import Foundation
 import Observation
 
-
-@Observable class ProductManager {
+@Observable class BudgetManager {
     
-    var products:[ProductModel] = []
+    var allTotals:[ExpenseTotalModel] = [
+        ExpenseTotalModel(name: "billTotal", expenseCategory: .bill, color: .blue),
+        ExpenseTotalModel(name: "entertainmentTotal", expenseCategory: .entertainment, color: .red),
+        ExpenseTotalModel(name: "utilityTotal", expenseCategory: .utility, color: .purple),
+        ExpenseTotalModel(name: "taxTotal", expenseCategory: .tax, color: .brown),
+        ExpenseTotalModel(name: "foodTotal", expenseCategory: .food, color: .orange)
+    ]
 
-   
-    
-    func downLoadProducts() async {
-        
-        print("start download")
-        let urlString = "https://dummyjson.com/products"
-        
-        
-        let jsonDecoder = URL(string: urlString)
-        
-        do {
-            
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    guard let result = try? JSONDecoder().decode(Products.self, from: data) else { return }
-                    
-                   let newResult = result.products
-                    
-                    products = newResult
-                    print(products.count)
-                    
-                    print("data :\(data)")
-                }
+    var allExpenses:[ExpenseModel] = [
+        ExpenseModel(name: "Water", expense: .utility, amount: 150, dateCreated: .from(year: 2024, month: 1, day: 10), color: .purple),
+        ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 1, day: 1), color: .blue),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 210, dateCreated: .from(year: 2024, month: 1, day: 2), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 1, day: 15), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 1, day: 16), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 1, day: 17), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 1, day: 18), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 2, day: 15), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 2, day: 16), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 2, day: 17), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 2, day: 18), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 4, day: 15), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 16), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 17), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 4, day: 18), color: .orange),
+        ExpenseModel(name: "Federal Tax", expense: .tax, amount: 950, dateCreated: .from(year: 2024, month: 4, day: 12), color: .brown),
+        ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 4, day: 20), color: .red),
+        ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 2, day: 1), color: .blue),
+        ExpenseModel(name: "Meijer", expense: .food, amount: 310, dateCreated: .from(year: 2024, month: 3, day: 2), color: .orange),
+        ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 3, day: 1), color: .blue),
+        ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 3, day: 20), color: .red),
+        ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 4, day: 1), color: .blue),
+        ExpenseModel(name: "Meijer", expense: .food, amount: 210, dateCreated: .from(year: 2024, month: 4, day: 10), color: .orange),
+        ExpenseModel(name: "Rent", expense: .bill, amount: 700, dateCreated: .from(year: 2024, month: 5, day: 1), color: .blue)
+      
+
+    ]
+    func findMonthlyTotal() {
+        for expense in allExpenses {
+            switch expense.category {
+            case .bill:
+                allTotals[0].list.append(expense)
+            case .entertainment:
+                allTotals[1].list.append(expense)
+            case .utility:
+                allTotals[2].list.append(expense)
+            case .tax:
+                allTotals[3].list.append(expense)
+            case .food:
+                allTotals[4].list.append(expense)
+                
             }
         }
-        catch {
-            print("cannot parse data")
-        }
-
     }
-    
 }
 ```
 
