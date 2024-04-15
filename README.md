@@ -11,6 +11,10 @@ Today we're going to implement Swift Charts to build an expense tracking applica
 ```
 import Foundation
 
+enum ExpenseCategory: String, CaseIterable {
+    case food, entertainment, bill, utility, tax
+}
+
 class ExpenseModel: Identifiable {
     var id = UUID()
     var name: String
