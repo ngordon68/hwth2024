@@ -150,6 +150,9 @@ import Observation
 ```
 
 
-#Resources
+# Resources
+
+- [Swift Charts Documentation](https://developer.apple.com/documentation/charts)
+- [Swift Charts Youtube Tutorial](https://www.youtube.com/watch?v=c9XxDjmLT24&t=5356s)
 
 
