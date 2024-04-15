@@ -46,6 +46,45 @@ class ExpenseModel: Identifiable {
 }
 
 
+class ExpenseTotalModel: Identifiable {
+    
+    var id = UUID()
+    var name: String
+    var category: ExpenseCategory
+    var list: [ExpenseModel] = []
+    var color: Color
+    var percentage: Double = 0.0
+    
+    var total: Double {
+        var total = 0.0
+        for expense in list {
+            total += expense.amount
+        }
+        return total
+    }
+    
+    var percentageTotal:Double {
+        let manager = BudgetManager()
+        var expenseTotal = 0.0
+        for expense in manager.allExpenses {
+            expenseTotal += expense.amount
+        }
+        
+        return total/expenseTotal * 100
+    }
+    
+
+    init(id: UUID = UUID(), name: String, expenseCategory: ExpenseCategory, color: Color) {
+        self.id = id
+        self.name = name
+        self.category = expenseCategory
+        self.color = color
+        
+        
+    }
+}
+
+
 ```
 ### Step 2 We will make an Observable Class that will manage both downloading the data and populating the array of data:
 ``` 
