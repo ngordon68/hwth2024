@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E4512F52BB5C0D0008EED96 /* jsonformatter.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E4512F42BB5C0D0008EED96 /* jsonformatter.txt */; };
-		8E4512F72BB5C0FA008EED96 /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4512F62BB5C0FA008EED96 /* JsonDecoder.swift */; };
+		8E04D0972BC8B91F00CB9F4E /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E04D0962BC8B91F00CB9F4E /* AddExpenseView.swift */; };
+		8E6C8CF22BC6BB9700A4CC81 /* ExpenseDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C8CF12BC6BB9700A4CC81 /* ExpenseDemoView.swift */; };
 		8EA255552BB48DE40008A464 /* SwiftChartsDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA255542BB48DE40008A464 /* SwiftChartsDemoApp.swift */; };
-		8EA255572BB48DE40008A464 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA255562BB48DE40008A464 /* ContentView.swift */; };
 		8EA255592BB48DE50008A464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA255582BB48DE50008A464 /* Assets.xcassets */; };
 		8EA2555C2BB48DE50008A464 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA2555B2BB48DE50008A464 /* Preview Assets.xcassets */; };
+		8ED3E9F62BCE30CC00EBE537 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED3E9F52BCE30CC00EBE537 /* SummaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E4512F42BB5C0D0008EED96 /* jsonformatter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jsonformatter.txt; sourceTree = "<group>"; };
-		8E4512F62BB5C0FA008EED96 /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
+		8E04D0962BC8B91F00CB9F4E /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
+		8E6C8CF12BC6BB9700A4CC81 /* ExpenseDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDemoView.swift; sourceTree = "<group>"; };
 		8EA255512BB48DE40008A464 /* SwiftChartsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftChartsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA255542BB48DE40008A464 /* SwiftChartsDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChartsDemoApp.swift; sourceTree = "<group>"; };
-		8EA255562BB48DE40008A464 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8EA255582BB48DE50008A464 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EA2555B2BB48DE50008A464 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8EA2555D2BB48DE50008A464 /* SwiftChartsDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftChartsDemo.entitlements; sourceTree = "<group>"; };
+		8ED3E9F52BCE30CC00EBE537 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				8EA255542BB48DE40008A464 /* SwiftChartsDemoApp.swift */,
-				8EA255562BB48DE40008A464 /* ContentView.swift */,
-				8E4512F42BB5C0D0008EED96 /* jsonformatter.txt */,
-				8E4512F62BB5C0FA008EED96 /* JsonDecoder.swift */,
+				8E6C8CF12BC6BB9700A4CC81 /* ExpenseDemoView.swift */,
+				8ED3E9F52BCE30CC00EBE537 /* SummaryView.swift */,
+				8E04D0962BC8B91F00CB9F4E /* AddExpenseView.swift */,
 				8EA255582BB48DE50008A464 /* Assets.xcassets */,
 				8EA2555D2BB48DE50008A464 /* SwiftChartsDemo.entitlements */,
 				8EA2555A2BB48DE50008A464 /* Preview Content */,
@@ -135,7 +135,6 @@
 			files = (
 				8EA2555C2BB48DE50008A464 /* Preview Assets.xcassets in Resources */,
 				8EA255592BB48DE50008A464 /* Assets.xcassets in Resources */,
-				8E4512F52BB5C0D0008EED96 /* jsonformatter.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,9 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EA255572BB48DE40008A464 /* ContentView.swift in Sources */,
+				8E6C8CF22BC6BB9700A4CC81 /* ExpenseDemoView.swift in Sources */,
+				8ED3E9F62BCE30CC00EBE537 /* SummaryView.swift in Sources */,
+				8E04D0972BC8B91F00CB9F4E /* AddExpenseView.swift in Sources */,
 				8EA255552BB48DE40008A464 /* SwiftChartsDemoApp.swift in Sources */,
-				8E4512F72BB5C0FA008EED96 /* JsonDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +288,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -318,6 +320,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

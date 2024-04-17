@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftChartsDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ExpenseDemoView()
         }
     }
 }
