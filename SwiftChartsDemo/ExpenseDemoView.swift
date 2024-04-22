@@ -18,10 +18,14 @@ extension Date {
     
 }
 enum ExpenseCategory: String, CaseIterable {
-    case food, entertainment, bill, utility, tax
+    case food, entertainment, bill, utility
 }
 
-class ExpenseTotalModel: Identifiable {
+class ExpenseTotalModel: Identifiable, Equatable {
+    static func == (lhs: ExpenseTotalModel, rhs: ExpenseTotalModel) -> Bool {
+        lhs.total > rhs.total
+    }
+    
     
     var id = UUID()
     var name: String
@@ -29,6 +33,7 @@ class ExpenseTotalModel: Identifiable {
     var list: [ExpenseModel] = []
     var color: Color
     var percentage: Double = 0.0
+
     
     var total: Double {
         var total = 0.0
@@ -83,8 +88,7 @@ class ExpenseModel: Identifiable {
             self.color = .blue
         case .utility:
             self.color = .purple
-        case .tax:
-            self.color = .brown
+      
         }
     }
 }
@@ -111,7 +115,6 @@ class ExpenseModel: Identifiable {
         ExpenseTotalModel(name: "billTotal", expenseCategory: .bill, color: .blue),
         ExpenseTotalModel(name: "entertainmentTotal", expenseCategory: .entertainment, color: .red),
         ExpenseTotalModel(name: "utilityTotal", expenseCategory: .utility, color: .purple),
-        ExpenseTotalModel(name: "taxTotal", expenseCategory: .tax, color: .brown),
         ExpenseTotalModel(name: "foodTotal", expenseCategory: .food, color: .orange)
     ]
 
@@ -131,7 +134,7 @@ class ExpenseModel: Identifiable {
         ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 16), color: .orange),
         ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 17), color: .orange),
         ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 4, day: 18), color: .orange),
-        ExpenseModel(name: "Federal Tax", expense: .tax, amount: 950, dateCreated: .from(year: 2024, month: 4, day: 12), color: .brown),
+        ExpenseModel(name: "lunch", expense: .food, amount: 950, dateCreated: .from(year: 2024, month: 4, day: 12), color: .brown),
         ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 4, day: 20), color: .red),
         ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 2, day: 1), color: .blue),
         ExpenseModel(name: "Meijer", expense: .food, amount: 310, dateCreated: .from(year: 2024, month: 3, day: 2), color: .orange),
@@ -152,10 +155,8 @@ class ExpenseModel: Identifiable {
                 allTotals[1].list.append(expense)
             case .utility:
                 allTotals[2].list.append(expense)
-            case .tax:
-                allTotals[3].list.append(expense)
             case .food:
-                allTotals[4].list.append(expense)
+                allTotals[3].list.append(expense)
                 
             }
         }
@@ -169,10 +170,15 @@ struct ExpenseDemoView: View {
     @State private var isShowingExpenseView = false
     @State private var isShowingSummaryView = false
    
- @State var budgetManager = BudgetManager()
+    @State var budgetManager = BudgetManager()
     
     init() {
         budgetManager.findMonthlyTotal()
+        
+    }
+    
+    var maxExpenseData: ExpenseTotalModel? {
+        budgetManager.allTotals.max{ $0.total > $1.total }
     }
 
     var body: some View {
@@ -198,22 +204,7 @@ struct ExpenseDemoView: View {
             }
             .buttonStyle(.borderedProminent)
             
-            
-           
-//                Chart(budgetManager.allExpenses) { expense in
-//                    BarMark(x: .value("Name", expense.dateCreated),
-//                            y: .value("Amount", expense.amount))
-//                    .foregroundStyle(by: .value("Name", expense.category.rawValue))
-//    
-//                   
-//                    
-//                    
-//                }
-//                .frame(height: 200)
-//                .chartScrollableAxes(.horizontal)
-//                .chartYScale(domain: 0...800)
-//                .chartLegend(.visible)
-            
+  
                 
                 VStack(alignment: .leading, spacing: 4) {
                     
@@ -226,16 +217,12 @@ struct ExpenseDemoView: View {
                     Chart(budgetManager.allTotals) { expense in
                         
                         RuleMark(y: .value("Goal", 1000))
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.black.opacity(0.2))
                             .opacity(0.2)
-                        
-                      
-                        
-                        BarMark(x: .value("Name", expense.category.rawValue.capitalized),
+
+                        BarMark(x: .value("Name", expense.name),
                                 y: .value("Amount", expense.total))
                         .foregroundStyle(by: .value("Name", expense.category.rawValue))
-                        
-                        
                         .annotation {
                             Text("\(String(format: "%.2f", expense.total))")
                                 .font(.caption)
@@ -243,14 +230,35 @@ struct ExpenseDemoView: View {
                         }
                         
                     }
+                    
                     .background(.gray.opacity(0.1))
                     .frame(height: 100)
                     .padding()
-                    .chartXAxis(content: {
-                      
-                    })
-                 
-                  
+                    .chartXAxis(.hidden)
+                    
+                    
+                    Chart(budgetManager.allExpenses) { expense in
+ 
+
+                        BarMark(x: .value("Name", expense.dateCreated),
+                                y: .value("Amount", expense.amount))
+
+//                        .annotation {
+//                            Text("\(String(format: "%.2f", expense.amount))")
+//                                .font(.caption)
+//                            
+//                        }
+                        
+                    }
+                    
+                    .background(.gray.opacity(0.1))
+                    .frame(height: 100)
+                    .padding()
+                    
+                    
+  
+                    
+
                     
                     HStack {
                         Image(systemName: "line.diagonal")
@@ -266,23 +274,23 @@ struct ExpenseDemoView: View {
                 ForEach(budgetManager.allExpenses.sorted(by: { $0.dateCreated > $1.dateCreated})) { expense in
                     
                     HStack {
-                        Spacer()
+                      
                         VStack {
                             Text(expense.name)
+                                .bold()
                             Text(expense.dateCreated.formatted(date: .abbreviated, time: .omitted))
                                 .font(.caption2)
+                                .foregroundStyle(.gray)
                         }
                         Spacer()
                         Text("\(String(format: "%.2f", expense.amount))")
-                        Spacer()
+                            .bold()
+                       
                             
                     }
-                    .background  {
-                        Rectangle()
-                            .foregroundColor(.gray.opacity(0.3))
-                            .cornerRadius(10)
-                    }
-                    
+                    .padding(.horizontal)
+                    Rectangle()
+                        .frame(height: 1)
                 }
                 
                 
