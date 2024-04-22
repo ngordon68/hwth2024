@@ -1,4 +1,7 @@
+
 # Getting Started with Xcode and SwiftUI
+
+[Swift Chart Slides](https://docs.google.com/presentation/d/1LGkjZa4aKqXasEaKGJzSvfrTcwMkS9Tj1DljkrkTkAk/edit#slide=id.g7e92ecccc8_1_36)
 
 Today we're going to implement Swift Charts to build an expense tracking application.
 
@@ -156,8 +159,6 @@ import Observation
     }
 }
 ```
-
-
 # Resources
 
 - [Swift Charts Documentation](https://developer.apple.com/documentation/charts)
