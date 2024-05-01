@@ -171,6 +171,13 @@ class ExpenseModel: Identifiable {
 }
 
 ```
+
+
+> [!TIP]
+> A useful chunk of code to display numbers with only 2 decimals.
+> ```
+> Text("\(String(format: "%.2f", expense.amount))")
+> ```
 # Resources
 
 - [Swift Charts Documentation](https://developer.apple.com/documentation/charts)
