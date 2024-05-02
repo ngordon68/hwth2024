@@ -172,6 +172,33 @@ class ExpenseModel: Identifiable {
 
 ```
 
+### Step 3. Display list of expenses 
+
+```
+           ScrollView {
+             
+                ForEach(budgetManager.allExpenses.sorted(by: { $0.dateCreated > $1.dateCreated})) { expense in
+                    
+                    HStack {
+                        VStack {
+                            Text(expense.name)
+                                .bold()
+                            Text(expense.dateCreated.formatted(date: .abbreviated, time: .omitted))
+                                .font(.caption2)
+                                .foregroundStyle(.gray)
+                        }
+                        Spacer()
+                        Text("\(String(format: "%.2f", expense.amount))")
+                            .bold()
+        
+                    }
+                    .padding(.horizontal)
+                    Rectangle()
+                        .frame(height: 1)
+                }
+            }
+```
+
 
 > [!TIP]
 >  display numbers with only 2 decimals.
