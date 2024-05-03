@@ -9,7 +9,12 @@ Today we're going to implement Swift Charts to build an expense tracking applica
  - [Xcode 15.0 or newer](https://developer.apple.com/xcode/) which can be found on the App Store on the Mac
  - Basic knowledge of Swift and SwiftUI
 
-### Expected Outcome
+
+# User Story
+- As a working class citizen with bad spending habits, I would like to see how much I spend 
+
+
+# Expected Outcome
 <img width="300px; height: 500px;" alt="Screen Shot 2023-02-16 at 11 50 11 AM" src="https://github.com/ngordon68/hwth2024/assets/102773701/f80f4479-c773-4098-ac76-2e1a752786f9">
 <img width="300px; height: 500px;" alt="Screen Shot 2023-02-16 at 11 50 11 AM" src="https://github.com/ngordon68/hwth2024/assets/102773701/ac1a14c2-698c-4b9e-a664-f9c9bd611d6a">
 
