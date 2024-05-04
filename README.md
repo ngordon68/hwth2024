@@ -220,8 +220,8 @@ class ExpenseModel: Identifiable {
 > ```
 > Text("\(String(format: "%.2f", expense.amount))")
 > ```
->
-> [!Tip]
+
+> [!TIP]
 > To show the most expense high lighted
 > ```
 >     var maxExpenseData: ExpenseTotalModel? {
