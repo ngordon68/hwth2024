@@ -42,7 +42,7 @@ enum ExpenseCategory: String, CaseIterable {
 
 class ExpenseTotalModel: Identifiable, Equatable {
     static func == (lhs: ExpenseTotalModel, rhs: ExpenseTotalModel) -> Bool {
-        lhs.total > rhs.total
+        lhs.total == rhs.total
     }
     
     
