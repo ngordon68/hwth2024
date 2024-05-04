@@ -220,6 +220,17 @@ class ExpenseModel: Identifiable {
 > ```
 > Text("\(String(format: "%.2f", expense.amount))")
 > ```
+>
+> [!Tip]
+> To show the most expense high lighted
+> ```
+>     var maxExpenseData: ExpenseTotalModel? {
+        budgetManager.allTotals.max{ $0.percentageTotal < $1.percentageTotal }
+    }
+
+      .opacity(maxExpenseData == expense ? 0.2 : 1)
+
+> ```
 # Resources
 
 - [Swift Charts Documentation](https://developer.apple.com/documentation/charts)
