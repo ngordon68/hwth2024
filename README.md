@@ -11,9 +11,9 @@ Today we're going to implement Swift Charts to build an expense tracking applica
 
 
 # User Story
-- As a working class citizen with bad spending habits, I would like to see how much I spend
-- As a working class citizen with bad spending habits, I like to see a breakdown of my spending
-- As a working class citizen with bad spending habits, I like to see which category I spent the most 
+- As a working millennial with bad spending habits, I would like to see how much I spend
+- As a working millennial with bad spending habits, I like to see a breakdown of my spending
+- As a working millennial with bad spending habits, I like to see which category I spent the most 
   
 
 
