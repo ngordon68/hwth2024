@@ -116,6 +116,7 @@ class ExpenseModel: Identifiable {
 ```
 ### Step 2 We will make an Observable Class that will manage our expenses:
 ``` 
+
 @Observable class BudgetManager {
     
     var mostExpense: (String, Double) {
@@ -141,30 +142,107 @@ class ExpenseModel: Identifiable {
     ]
 
     var allExpenses:[ExpenseModel] = [
-        ExpenseModel(name: "Water", expense: .utility, amount: 150, dateCreated: .from(year: 2024, month: 1, day: 10), color: .purple),
-        ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 1, day: 1), color: .blue),
-        ExpenseModel(name: "Aldi", expense: .food, amount: 210, dateCreated: .from(year: 2024, month: 1, day: 2), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 1, day: 15), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 1, day: 16), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 1, day: 17), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 1, day: 18), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 2, day: 15), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 2, day: 16), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 2, day: 17), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 2, day: 18), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 4, day: 15), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 16), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 17), color: .orange),
-        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 4, day: 18), color: .orange),
-        ExpenseModel(name: "lunch", expense: .food, amount: 950, dateCreated: .from(year: 2024, month: 4, day: 12), color: .brown),
-        ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 4, day: 20), color: .red),
-        ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 2, day: 1), color: .blue),
-        ExpenseModel(name: "Meijer", expense: .food, amount: 310, dateCreated: .from(year: 2024, month: 3, day: 2), color: .orange),
-        ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 3, day: 1), color: .blue),
-        ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 3, day: 20), color: .red),
-        ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 4, day: 1), color: .blue),
-        ExpenseModel(name: "Meijer", expense: .food, amount: 210, dateCreated: .from(year: 2024, month: 4, day: 10), color: .orange),
-        ExpenseModel(name: "Rent", expense: .bill, amount: 700, dateCreated: .from(year: 2024, month: 5, day: 1), color: .blue)
+        ExpenseModel(name: "Water", expense: .utility, amount: 50, dateCreated: .from(year: 2024, month: 1, day: 10), color: .purple),
+        ExpenseModel(name: "Water", expense: .utility, amount: 50, dateCreated: .from(year: 2024, month: 2, day: 10), color: .purple),
+        ExpenseModel(name: "Water", expense: .utility, amount: 50, dateCreated: .from(year: 2024, month: 3, day: 10), color: .purple),
+        ExpenseModel(name: "Water", expense: .utility, amount: 50, dateCreated: .from(year: 2024, month: 4, day: 10), color: .purple),
+        ExpenseModel(name: "Water", expense: .utility, amount: 50, dateCreated: .from(year: 2024, month: 5, day: 10), color: .purple),
+        
+        
+        ExpenseModel(name:"Electricity", expense: .utility, amount: 50, dateCreated: .from(year: 2024, month: 1, day: 10), color: .purple),    ExpenseModel(name: "Electricity", expense: .utility, amount: 50, dateCreated: .from(year: 2024, month: 2, day: 10), color: .purple),    ExpenseModel(name: "Electricity", expense: .utility, amount: 50, dateCreated: .from(year: 2024, month: 3, day: 10), color: .purple),    ExpenseModel(name: "Electricity", expense: .utility, amount: 50, dateCreated: .from(year: 2024, month: 4, day: 10), color: .purple),
+        
+        
+        ExpenseModel(name:"Internet", expense: .utility, amount: 70, dateCreated: .from(year: 2024, month: 1, day: 10), color: .purple),    ExpenseModel(name: "Internet", expense: .utility, amount: 70, dateCreated: .from(year: 2024, month: 2, day: 10), color: .purple),    ExpenseModel(name: "Internet", expense: .utility, amount: 70, dateCreated: .from(year: 2024, month: 3, day: 10), color: .purple),    ExpenseModel(name: "Internet", expense: .utility, amount: 70, dateCreated: .from(year: 2024, month: 4, day: 10), color: .purple),
+        
+        ExpenseModel(name:"Phone", expense: .utility, amount: 100, dateCreated: .from(year: 2024, month: 1, day: 10), color: .purple),    ExpenseModel(name: "Phone", expense: .utility, amount: 100, dateCreated: .from(year: 2024, month: 2, day: 10), color: .purple),    ExpenseModel(name: "Phone", expense: .utility, amount: 100, dateCreated: .from(year: 2024, month: 3, day: 10), color: .purple),    ExpenseModel(name: "Phone", expense: .utility, amount: 100, dateCreated: .from(year: 2024, month: 4, day: 10), color: .purple),
+        
+        
+        ExpenseModel(name: "Rent", expense: .bill, amount: 800, dateCreated: .from(year: 2024, month: 1, day: 1), color: .blue),
+        ExpenseModel(name: "Rent", expense: .bill, amount: 800, dateCreated: .from(year: 2024, month: 2, day: 1), color: .blue),
+        ExpenseModel(name: "Rent", expense: .bill, amount: 800, dateCreated: .from(year: 2024, month: 3, day: 1), color: .blue),
+        ExpenseModel(name: "Rent", expense: .bill, amount: 800, dateCreated: .from(year: 2024, month: 4, day: 1), color: .blue),
+        ExpenseModel(name: "Rent", expense: .bill, amount: 600, dateCreated: .from(year: 2024, month: 5, day: 1), color: .blue),
+        
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 1, day: 7), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 1, day: 14), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 1, day: 21), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 1, day: 28), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 2, day: 4), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 2, day: 11), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 2, day: 18), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 2, day: 25), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 3, day: 3), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 3, day: 10), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 3, day: 17), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 3, day: 24), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 4, day: 7), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 4, day: 14), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 4, day: 21), color: .orange),
+        ExpenseModel(name: "Aldi", expense: .food, amount: 30, dateCreated: .from(year: 2024, month: 4, day: 28), color: .orange),
+        
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 1, day: 3), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 1, day: 4), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 1, day: 5), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 1, day:8), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 1, day: 9), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 1, day: 10), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 1, day: 18), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 1, day: 19), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 1, day: 25), color: .orange),
+        ExpenseModel(name: "Dinner", expense: .food, amount: 106, dateCreated: .from(year: 2024, month: 1, day: 26), color: .orange),
+        
+        
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 2, day: 3), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 2, day: 4), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 2, day: 5), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 2, day:8), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 2, day: 9), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 2, day: 10), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 2, day: 18), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 2, day: 19), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 2, day: 25), color: .orange),
+        ExpenseModel(name: "Dinner", expense: .food, amount: 100, dateCreated: .from(year: 2024, month: 2, day: 26), color: .orange),
+        
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 3, day: 3), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 3, day: 4), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 3, day: 5), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 3, day:8), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 3, day: 9), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 3, day: 10), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 3, day: 18), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 3, day: 19), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 3, day: 25), color: .orange),
+        ExpenseModel(name: "Dinner", expense: .food, amount: 70, dateCreated: .from(year: 2024, month: 3, day: 26), color: .orange),
+        
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 4, day: 3), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 4), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 5), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 4, day:8), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 4, day: 9), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 10), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 6, dateCreated: .from(year: 2024, month: 4, day: 18), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 15, dateCreated: .from(year: 2024, month: 4, day: 19), color: .orange),
+        ExpenseModel(name: "Lunch", expense: .food, amount: 12, dateCreated: .from(year: 2024, month: 4, day: 25), color: .orange),
+        ExpenseModel(name: "Dinner", expense: .food, amount: 50, dateCreated: .from(year: 2024, month: 4, day: 56), color: .orange),
+
+        ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 1, day: 26), color: .red),
+        ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 2, day: 26), color: .red),
+        ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 3, day: 26), color: .red),
+        ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 4, day: 26), color: .red),
+        ExpenseModel(name: "Netflix", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 4, day: 26), color: .red),
+        
+        ExpenseModel(name: "Starz", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 1, day: 24), color: .red),
+        ExpenseModel(name: "Starz", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 2, day: 24), color: .red),
+        ExpenseModel(name: "Starz", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 3, day: 24), color: .red),
+        ExpenseModel(name: "Starz", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 4, day: 24), color: .red),
+        
+        ExpenseModel(name: "Disney+", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 1, day: 28), color: .red),
+        ExpenseModel(name: "Disney+", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 2, day: 28), color: .red),
+        ExpenseModel(name: "Disney+", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 3, day: 28), color: .red),
+        ExpenseModel(name: "Disney+", expense: .entertainment, amount: 22.20, dateCreated: .from(year: 2024, month: 4, day: 28), color: .red)
+
+  
+
       
 
     ]
